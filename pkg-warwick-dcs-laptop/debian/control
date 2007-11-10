@@ -1,0 +1,13 @@
+Source: warwick-dcs-laptop
+Section: debian-installer
+Priority: optional
+Maintainer: Chris Lamb <chris@chris-lamb.co.uk>
+Build-Depends: debhelper (>= 5.0.22)
+Standards-Version: 3.7.2
+
+Package: warwick-dcs-laptop
+Architecture: any
+XB-Installer-Menu-Item: 1850 
+Depends: ${misc:Depends}, ${debconf:Depends}, curl-static
+Description: Authenticate with DCS laptop port
+XC-Package-Type: udeb

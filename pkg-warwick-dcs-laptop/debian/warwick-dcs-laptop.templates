@@ -1,0 +1,58 @@
+Template: debian-installer/warwick-dcs-laptop/title
+Type: text
+Description: Authenticate with DCS laptop point
+
+Template: warwick-dcs-laptop/username
+Type: string
+Description: DCS Username:
+ If you would like to install Debian GNU/Linux using the
+ laptop points in the University of Warwick Department
+ of Computer Science, you must first authenticate with
+ your DCS login details.
+ .
+ For more information, please see:
+  http://www.dcs.warwick.ac.uk/local/laptopnetwork.html
+
+Template: warwick-dcs-laptop/password
+Type: password
+Description: DCS password:
+ Please enter your DCS password.
+
+Template: warwick-dcs-laptop/username-empty
+Type: error
+Description: Empty username
+ You entered an empty DCS username, which is not allowed.
+ .
+ Please choose a non-empty username.
+
+Template: warwick-dcs-laptop/password-empty
+Type: error
+Description: Empty password
+ You entered an empty DCS password, which is not allowed.
+ .
+ Please choose a non-empty password.
+
+Template: warwick-dcs-laptop/fail-auth
+Type: error
+Description: Authentication failure 
+ You entered an invalid username/password combination.
+ .
+ Please try again.
+
+Template: warwick-dcs-laptop/fail-misc
+Type: error
+Description: Authentication failure
+ Could not connect to the DCS authentication server:
+ .
+ \"${msg}\"
+ .
+ Please try again.
+
+Template: warwick-dcs-laptop/progress
+Type: text
+Description: Connecting to DCS authentication server
+
+Template: warwick-dcs-laptop/success
+Type: text
+Description: Authentication was successful
+ Network installation of Debian GNU/Linux can now continue.

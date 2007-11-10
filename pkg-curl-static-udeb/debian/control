@@ -1,0 +1,23 @@
+Source: curl
+Section: debian-installer
+Priority: optional
+Maintainer: Chris Lamb <chris@chris-lamb.co.uk>
+Build-Depends: debhelper (>= 5.0.22), autoconf, libtool, automake1.7, libgnutls-dev
+Standards-Version: 3.7.2
+
+Package: curl-static
+Architecture: any
+Depends: ${misc:Depends}
+XC-Package-Type: udeb
+Description: Get a file from an a server (statically-linked version)
+ curl is a client to get files from servers using any of the supported
+ protocols. The command is designed to work without user interaction
+ or any kind of interactivity.
+ .
+ curl offers a busload of useful tricks like proxy support, user
+ authentication, ftp upload, HTTP post, file transfer resume and more.
+ .
+ This package provides a ~200KB statically-linked Curl executable
+ (with SSL support) for use in the Debian Installer.
+ .
+  Homepage: http://curl.haxx.se

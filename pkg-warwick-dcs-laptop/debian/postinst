@@ -1,0 +1,78 @@
+#!/bin/sh
+
+#DEBHELPER#
+
+. /usr/share/debconf/confmodule
+db_capb backup
+
+TEMPLATE_ROOT=warwick-dcs-laptop
+DCS_LOGIN_URL="https://secure.dcs.warwick.ac.uk/connect/go.html?bSubmit=click%20here"
+
+STATE=1
+while [ "$STATE" -ge 1 -a "$STATE" -le 3 ];
+do
+	case "$STATE" in
+		1)
+			db_input critical $TEMPLATE_ROOT/username || true
+			;;
+		2)
+			db_get $TEMPLATE_ROOT/username
+			if [ -z "$RET" ];
+			then
+				db_input critical $TEMPLATE_ROOT/username-empty
+				db_go
+				STATE=$(($STATE - 1))
+				continue
+			fi
+
+			db_input critical $TEMPLATE_ROOT/password || true
+			;;
+		3)
+			db_get $TEMPLATE_ROOT/password
+			if [ -z "$RET" ];
+			then
+				db_input critical $TEMPLATE_ROOT/password-empty
+				db_go
+				STATE=$(($STATE - 1))
+				continue
+			fi
+
+			STATE=1
+
+			db_progress START 0 1 $TEMPLATE_ROOT/progress
+			db_get $TEMPLATE_ROOT/username
+			USERNAME="$RET"
+			db_get $TEMPLATE_ROOT/password
+			PASSWORD="$RET"
+			OUT=`curl -f -sS -m 10 --user "$USERNAME:$PASSWORD" "$DCS_LOGIN_URL" 2>&1`
+			CURL_STATUS=$?
+			db_progress STOP
+			
+			if [ $CURL_STATUS -gt 0 ];
+			then
+				if echo "${OUT}" | grep 401 > /dev/null;
+				then
+					db_input critical $TEMPLATE_ROOT/fail-auth || true
+				else
+					db_subst $TEMPLATE_ROOT/fail-misc msg "${OUT#curl: }"
+					db_input critical $TEMPLATE_ROOT/fail-misc || true
+				fi
+
+				db_go
+				continue
+			fi
+
+			db_input critical $TEMPLATE_ROOT/success || true
+			db_go && STATE=9
+			continue
+			;;
+	esac
+	
+	if db_go;
+	then
+		STATE=$(($STATE + 1))
+	else
+		STATE=$(($STATE - 1))
+	fi
+
+done

@@ -1,0 +1,6 @@
+*.tar.gz
+*.diff.gz
+*.build
+*.dsc
+*.udeb
+tarballs/

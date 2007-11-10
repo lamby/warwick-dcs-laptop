@@ -1,0 +1,2 @@
+src/curl usr/bin
+debian/tmp/etc/ssl
