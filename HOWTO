@@ -1,0 +1,21 @@
+
+To install:
+
+ * Build the `curl-static` udeb using the latest Curl upstream tarball
+   from Debian.  You may have to sync the local debian/changelog.
+
+ * Build the `warwick-dcs-laptop` udeb. It is a "Debian native"
+   package.
+
+ * Get a SVN checkout of the Debian Installer:
+      http://www.debian.org/devel/debian-installer/svn
+
+ * Copy the udebs into the `installer/build/localudebs/` directory.
+
+ * Include the preseed.cfg by creating `installer/build/config/local` with
+   the contents:
+
+     PRESEED = /path/to/preseed.cfg
+
+ * Build the installer from the `installer/build/` directory. You can run
+   `make` to see the possible targets.
