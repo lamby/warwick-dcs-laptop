@@ -7,8 +7,11 @@ To install:
  * Build the `warwick-dcs-laptop` udeb. It is a "Debian native"
    package.
 
- * Get a SVN checkout of the Debian Installer:
-      http://www.debian.org/devel/debian-installer/svn
+ * Download the source for the Debian Installer by either:
+
+     * `apt-get source debian-installer`
+     * Get a SVN checkout of the Debian Installer:
+          http://www.debian.org/devel/debian-installer/svn
 
  * Copy the udebs into the `installer/build/localudebs/` directory.
 
