@@ -1,17 +1,20 @@
 
 To install:
 
- * Build the `curl-static` udeb using the latest Curl upstream tarball
-   from Debian.  You may have to sync the local debian/changelog.
-
- * Build the `warwick-dcs-laptop` udeb. It is a "Debian native"
-   package.
-
  * Download the source for the Debian Installer by either:
 
      * `apt-get source debian-installer`
      * Get a SVN checkout of the Debian Installer:
           http://www.debian.org/devel/debian-installer/svn
+
+ * Install the build-dependencies for the Debian Installer with
+   `apt-get build-dep debian-installer`
+
+ * Build the `curl-static` udeb using the latest Curl upstream tarball
+   from Debian.  You may have to sync the local debian/changelog.
+
+ * Build the `warwick-dcs-laptop` udeb. It is a "Debian native"
+   package.
 
  * Copy the udebs into the `installer/build/localudebs/` directory.
 
