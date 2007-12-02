@@ -61,6 +61,6 @@ Type: text
 Description: Connecting to DCS authentication server
 
 Template: warwick-dcs-laptop/success
-Type: text
+Type: note
 Description: Authentication was successful
  Network installation of Debian GNU/Linux can now continue.
