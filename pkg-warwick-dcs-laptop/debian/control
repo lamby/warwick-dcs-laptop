@@ -6,7 +6,7 @@ Build-Depends: debhelper (>= 5.0.22)
 Standards-Version: 3.7.2
 
 Package: warwick-dcs-laptop
-Architecture: any
+Architecture: all
 XB-Installer-Menu-Item: 1850 
 Depends: ${misc:Depends}, ${debconf:Depends}, curl-static
 Description: Authenticate with DCS laptop port
