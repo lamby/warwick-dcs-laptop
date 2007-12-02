@@ -16,6 +16,20 @@ To install:
  * Build the `warwick-dcs-laptop` udeb. It is a "Debian native"
    package.
 
+ * If you want to allow users to specify the suite to install, rebuild the
+   `choose-mirror` udeb with the following patch:
+
+      --- a/packages/choose-mirror/choose-mirror.c
+      +++ b/packages/choose-mirror/choose-mirror.c
+      @@ -324,7 +324,7 @@ static int choose_suite(void) {
+               * select a different suite
+               */
+              if (! base_on_cd)
+      -               debconf_input(debconf, "medium", DEBCONF_BASE "suite");
+      +               debconf_input(debconf, "critical", DEBCONF_BASE "suite");
+              return 0;
+       }
+
  * Copy the udebs into the `installer/build/localudebs/` directory.
 
  * Include the preseed.cfg by creating `installer/build/config/local` with
