@@ -5,18 +5,26 @@ Description: Authenticate with DCS laptop point
 Template: warwick-dcs-laptop/username
 Type: string
 Description: DCS Username:
- If you would like to install Debian GNU/Linux using the
- laptop points in the University of Warwick Department
- of Computer Science, you must first authenticate with
- your DCS login details.
+ Please enter your DCS username.
+ .
+ If you would like to install Debian GNU/Linux using the laptop points
+ in the University of Warwick Department of Computer Science, you must
+ first authenticate with your DCS login details.
  .
  For more information, please see:
-  http://www.dcs.warwick.ac.uk/local/laptopnetwork.html
+ http://www.dcs.warwick.ac.uk/local/laptopnetwork.html
 
 Template: warwick-dcs-laptop/password
 Type: password
 Description: DCS password:
  Please enter your DCS password.
+ .
+ If you would like to install Debian GNU/Linux using the laptop points
+ in the University of Warwick Department of Computer Science, you must
+ first authenticate with your DCS login details.
+ .
+ For more information, please see:
+ http://www.dcs.warwick.ac.uk/local/laptopnetwork.html
 
 Template: warwick-dcs-laptop/username-empty
 Type: error
