@@ -37,5 +37,10 @@ To install:
 
      PRESEED = /path/to/preseed.cfg
 
+ * Include the warwick-dcs-laptop in the package lists by creating
+   `installer/build/pkg-lists/local` with the contents:
+
+     warwick-dcs-laptop
+
  * Build the installer from the `installer/build/` directory. You can run
    `make` to see the possible targets.
